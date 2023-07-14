@@ -255,7 +255,7 @@ class Checkout_Handler {
 		 * @var LocationService $location_service
 		 */
 		$location_service = ServiceRegister::getService( LocationService::CLASS_NAME );
-		$postcode = ( $customer['shipping_postcode'] && $customer['shipping_postcode'] !== '' ) ? $customer['shipping_postcode'] : $customer['postcode'];
+		$postcode         = ( $customer['shipping_postcode'] && $customer['shipping_postcode'] !== '' ) ? $customer['shipping_postcode'] : $customer['postcode'];
 
 		return $location_service->getLocations( $method_id, $customer['shipping_country'], $postcode );
 	}
