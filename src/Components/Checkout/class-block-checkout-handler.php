@@ -178,6 +178,10 @@ class Block_Checkout_Handler {
 	private function get_selected_shipping_method() {
 		$chosen_shipping_methods = wc()->session->get( 'chosen_shipping_methods', '' );
 
+		if (empty($chosen_shipping_methods) || !is_array($chosen_shipping_methods)) {
+			return null;
+		}
+
 		return explode( ':', reset( $chosen_shipping_methods ) )[1];
 	}
 
